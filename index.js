@@ -3,7 +3,7 @@ const app = express()
 const port = process.env.PORT || 5000;
 const mongoose = require('mongoose');
 require('dotenv').config()
-const cors =  require('cors')
+const cors = require('cors')
 
 // middleware
 app.use(express.json())
@@ -17,13 +17,13 @@ app.use('/blogs', blogRoutes)
 async function main() {
     try {
         await mongoose.connect(process.env.DB_URL || 'mongodb+srv://sujonbiswasdev_db_user:HPkfV6SKuqahtr7w@cluster0.629b0ee.mongodb.net/meta-blog?retryWrites=true&w=majority&appName=meta-blog');
-       console.log("mongodb connection sucessfully");
+        console.log("mongodb connection sucessfully");
     } catch (error) {
         console.log(error.message);
     }
-     app.get('/', (req, res) => {
+    app.get('/', (req, res) => {
         res.send('Meta Blog App Sever is runinng...!')
-})
+    })
 }
 
 main()
