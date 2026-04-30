@@ -16,7 +16,7 @@ app.use('/blogs', blogRoutes)
 // mongoose configuration
 async function main() {
     try {
-        await mongoose.connect(process.env.DB_URL || 'mongodb+srv://sujonbiswasdev_db_user:HPkfV6SKuqahtr7w@cluster0.629b0ee.mongodb.net/meta-blog?retryWrites=true&w=majority&appName=meta-blog');
+        await mongoose.connect(process.env.DB_URL || 'mongodb+srv://sujonbiswasdev_db_user:MwPZSj0iUx09Ojkm@cluster0meta.sqlzoxr.mongodb.net/?appName=Cluster0meta');
         console.log("mongodb connection sucessfully");
     } catch (error) {
         console.log(error.message);
