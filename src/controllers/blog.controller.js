@@ -1,5 +1,6 @@
 // get all blogs
-import Blog from "../models/blog.model"
+
+const Blog = require("../models/blog.model")
 
 const getAllBlogs = async (req, res) => {
     try {
