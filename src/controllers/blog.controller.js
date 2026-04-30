@@ -5,12 +5,12 @@ const Blog = require("../models/blog.model")
 const getAllBlogs = async (req, res) => {
     try {
         const blogs =  await Blog.find().sort({createdAt: -1})
-        res.status(200).send({message: "Blogs fetched successfully", blogs})
+        return res.status(200).send({message: "Blogs fetched successfully", blogs})
     } catch (error) {
         console.error("Error fetching all blogs", error)
-        res.status(500).send({message: "Error fetching all blogs", error})
+       return res.status(500).send({message: "Error fetching all blogs", error})
     }
-    res.status(200).send({message: "Blogs fetched successfully"})
+   return res.status(200).send({message: "Blogs fetched successfully"})
 }
 
 // get a single blog by id
@@ -26,7 +26,7 @@ const getBlogById = async (req, res) => {
 
     } catch (error) {
         console.error("Error fetching a blog by id", error)
-        res.status(500).send({message: "Error fetching a blog by id", error})
+       return res.status(500).send({message: "Error fetching a blog by id", error})
     }
 }
 
@@ -38,10 +38,10 @@ const postANewBlog = async(req, res) => {
            })
     
           const blog = await newBlog.save();
-          res.status(200).send({message: "Post created successfully", blog})
+          return res.status(200).send({message: "Post created successfully", blog})
     } catch (error) {
         console.error("Error creating a new blog", error)
-        res.status(500).send({message: "Error creating a new blog", error})
+      return  res.status(500).send({message: "Error creating a new blog", error})
     }    
 }
 
@@ -54,11 +54,11 @@ const deleteABlogById = async (req, res) => {
             return res.status(404).send({message: "No blog found"})
         }
 
-        res.status(200).send({message: "Blog deleted successfully", blog: deletedBlog})
+      return  res.status(200).send({message: "Blog deleted successfully", blog: deletedBlog})
 
     } catch (error) {
         console.error("Error deleting a blog by id", error)
-        res.status(500).send({message: "Error deleting a blog by id", error})
+       return res.status(500).send({message: "Error deleting a blog by id", error})
     }
 }
 const updateABlogById =  async (req, res) => {
@@ -68,10 +68,10 @@ const updateABlogById =  async (req, res) => {
         if(!updatedBlog) {
             return res.status(404).send({message: "No blog found"})
         }
-        res.status(200).send({message: "Blog updated successfully", blog: updatedBlog})
+      return  res.status(200).send({message: "Blog updated successfully", blog: updatedBlog})
     } catch (error) {
         console.error("Error updating a blog by id", error)
-        res.status(500).send({message: "Error updating a blog by id", error})
+       return res.status(500).send({message: "Error updating a blog by id", error})
     }
 }
 module.exports = {
