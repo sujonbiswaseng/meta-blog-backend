@@ -7,7 +7,7 @@ const cors = require('cors')
 
 // middleware
 app.use(express.json())
-app.use(cors({origin:"https://meta-blog-app-ebon.vercel.app" || "http://localhost:5000",credentials: true}))
+app.use(cors())
 
 // routes
 const blogRoutes = require('./src/routes/blog.routes.js')
