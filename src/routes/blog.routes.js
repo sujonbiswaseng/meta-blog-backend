@@ -1,6 +1,5 @@
-const express = require('express');
-const Blog = require('../models/blog.model');
-const { getAllBlogs, getBlogById, postANewBlog, deleteABlogById, updateABlogById } = require('../controllers/blog.controller.js');
+import express from 'express'
+import { getAllBlogs, getBlogById, postANewBlog, deleteABlogById, updateABlogById } from '../controllers/blog.controller.js';
 
 const router =  express.Router();
 

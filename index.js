@@ -1,13 +1,14 @@
-const express = require('express')
+import express from 'express'
 const app = express()
 const port = process.env.PORT || 5000;
-const mongoose = require('mongoose');
-require('dotenv').config()
-const cors = require('cors')
+import mongoose from 'mongoose'
+import dotenv from 'dotenv'
+dotenv.config()
+import cors from 'cors'
 
 // middleware
 app.use(express.json())
-app.use(cors({origin:"https://meta-blog-app-ebon.vercel.app" || "http://localhost:3000" || "http://localhost:5173/",credentials: true}))
+app.use(cors({origin:"https://meta-blog-app-ebon.vercel.app" || "http://localhost:3000" || "http://localhost:5173",credentials: true}))
 
 // routes
 const blogRoutes = require('./src/routes/blog.routes.js')
